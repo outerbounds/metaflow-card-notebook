@@ -46,8 +46,6 @@ Addiontally, you can use all of the features of Metaflow to manage execution of 
 - Parallel execution (ex: `foreach`)
 - etc.
 
-For example, here is a screenshot of report you will be able to generate if you follow the steps below:
-
 
 # Installation
 
