@@ -1,8 +1,10 @@
-# metaflow-card-notebook:  `@card(type='notebook')`
+# metaflow-card-notebook
+
+> Use `@card(type='notebook')` to programatically run & render notebooks in your Flows.
 
 <!-- TOC -->
 
-- [metaflow-card-notebook:  `@card(type='notebook')`](#metaflow-card-notebook--cardtypenotebook)
+- [metaflow-card-notebook](#metaflow-card-notebook)
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Example: Model Dasbhoard](#example-model-dasbhoard)
