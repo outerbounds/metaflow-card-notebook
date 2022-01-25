@@ -3,6 +3,7 @@
 !.gitignore
 !.github
 metaflow_card_cache
+_rendered_*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
