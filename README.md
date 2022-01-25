@@ -66,7 +66,7 @@ Before diving into how this card works, it is instructive to run a example to wh
 2. Run the example flow
 
     ```bash
-    python model_dashboard.py run
+    python model_dashboard.py  run
     ```
 
 3. View the card created by the DAG you just ran:
@@ -192,7 +192,7 @@ The `@card(type='notebook')` is an opinionated way to execute and render noteboo
 You can the following command in your terminal the see output of this step(may take several minutes):
 
 ```bash
-(cd example && python model_dashboard.py run && python model_dashboard.py card view nb_manual) 
+(cd example && python model_dashboard.py  run && python model_dashboard.py card view nb_manual) 
 ```
 
 # Common Issues
@@ -237,5 +237,5 @@ If you are running your flow remotely, you must remember to include the depdende
 If you are running steps remotely, for example [with `@batch`](https://docs.metaflow.org/metaflow/scaling#using-aws-batch-selectively-with-batch-decorator), you must ensure that youre notebooks are uploaded to the remote environment with the cli argument `--package-suffixes=".ipynb"` For example, to execute [example/model_dashboard.py](example/model_dashboard.py) with this argument:
 
 ```bash
-(cd example && python model_dashboard.py --package-suffixes=".ipynb" run)
+(cd example && python model_dashboard.py  --package-suffixes=".ipynb" run)
 ```

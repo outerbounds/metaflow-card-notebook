@@ -24,7 +24,7 @@ test-hide-input: run
 test: test-show-input test-hide-input
 
 example: .FORCE
-	cd example && python model_dashboard.py --package-suffixes=".ipynb" run
+	cd example && python model_dashboard.py --package-suffixes=".ipynb"  run
 	python model_dashboard card view nb_auto
 	python model_dashboard card view nb_manual
 
