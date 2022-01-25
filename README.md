@@ -31,7 +31,7 @@ Exeucted Paramterized Notebooks             |  Notebooks in DAGs | Managing Depe
 ![](images/papermill.png)  | ![](images/dag.png) | ![](images/docker.png)
 
 
-This way of generating reports and dasbhoards is very compelling, as it lets data scientists create content using environments and tools that they are familiar with.  **With `@card(type='notebook')` you can programatically run and render notebooks as part of a DAG.**, This card allows you to accomplish the following with an easy to use API:
+This way of generating reports and dasbhoards is very compelling, as it lets data scientists create content using environments and tools that they are familiar with.  **With `@card(type='notebook')` you can programatically run and render notebooks as part of a DAG.** This card allows you to accomplish the following:
 
 - Run notebook(s) programatically in your Metaflow DAGs.
 - Access data from any step in your DAG so you can visualize it or otherwhise use it to generate reports in a notebook.

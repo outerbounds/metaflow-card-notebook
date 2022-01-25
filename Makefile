@@ -29,3 +29,7 @@ example: .FORCE
 	python model_dashboard card view nb_manual
 
 .FORCE:
+
+release:
+	python setup.py sdist bdist_wheel
+	twine upload dist/*
