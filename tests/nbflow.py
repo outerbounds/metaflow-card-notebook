@@ -7,7 +7,7 @@ class NBFlow(FlowSpec):
         self.varialbe_for_notebook = "I Will Print Myself From A Notebook"
         self.next(self.end)
     
-    @card(type='notebook', options={'input_nb':'nbflow.ipynb'})
+    @card(type='notebook', options={'input_path':'nbflow.ipynb'})
     @step
     def end(self):
         pass

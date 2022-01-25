@@ -13,10 +13,10 @@ class NotebookCard(MetaflowCard):
     def __init__(self, options={"input_path":None}, **kwargs):
         self.options = options
         
-        if 'input_nb' not in self.options or not self.options['input_nb']:
-            raise ValueError("Must specify 'input_nb' in papermill_options in @card(type=notebook, papermill_options={'input_nb':'directory/your_notebook.ipynb'}")
+        if 'input_path' not in self.options or not self.options['input_path']:
+            raise ValueError("Must specify 'input_path' in papermill_options in @card(type=notebook, papermill_options={'input_path':'directory/your_notebook.ipynb'}")
         else:
-            self.input_path = Path(self.options['input_nb'])
+            self.input_path = Path(self.options['input_path'])
             if not self.input_path.name.endswith('.ipynb'):
                 raise ValueError(f"input_path must be a notebook file, not {self.input_path}")
             if not self.input_path.exists():
@@ -47,6 +47,7 @@ class NotebookCard(MetaflowCard):
     def render(self, task):
 
         # Execute the notebook
+        print(self.options)
         pm.execute_notebook(input_path=self.input_path,
                             output_path=self.output_path,
                             **self.options)
