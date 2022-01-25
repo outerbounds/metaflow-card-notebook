@@ -18,7 +18,7 @@ class NotebookCard(MetaflowCard):
         else:
             self.input_path = Path(self.options['input_nb'])
             if not self.input_path.name.endswith('.ipynb'):
-                raise ValueError(f"input_path must be a notebook file, not {self.input_path}}")
+                raise ValueError(f"input_path must be a notebook file, not {self.input_path}")
             if not self.input_path.exists():
                 raise ValueError(f"Input notebook does not exist: {self.input_path}\n The current directory is {Path.cwd()}")
 
