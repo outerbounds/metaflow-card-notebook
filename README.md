@@ -1,3 +1,9 @@
-# metaflow-card-template
+# metaflow-card-notebook
 
-A template for Metaflow Cards.  Click the `Use Template` button or [this link](https://github.com/outerbounds/metaflow-card-template/generate) to get started.
+## Installation
+
+```bash
+pip install metaflow-card-notebook
+```
+
+## Usage
