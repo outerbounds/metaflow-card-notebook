@@ -1,7 +1,7 @@
 from metaflow import step, current, FlowSpec, Parameter, conda_base, card
 from fastcore.all import run
 
-# @conda_base(python='3.8.10', libraries={'tensorflow':'2.4.3', 'fastcore':'1.3.27', 'papermill':'2.3.3'})
+@conda_base(python='3.8.10', libraries={'tensorflow':'2.4.3', 'fastcore':'1.3.27', 'papermill':'2.3.3'})
 class NBFlow(FlowSpec):
     """
     Training a model in Metaflow with notebooks.  
