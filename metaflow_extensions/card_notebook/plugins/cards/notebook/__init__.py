@@ -39,10 +39,8 @@ class NotebookCard(MetaflowCard):
         # Clean up papermill_options for any conflicting options
         for k in ['input_path', 'output_path']:
             self.options.pop(k, None)
-        self.options['parameters'] = (self.options
-                                                .get('parameters', {})
-                                                .update(dict(run_id=self.run_id, flow_name=self.flow_name))
-                                                 )
+        params = self.options.get('parameters', {})
+        self.options['parameters'] = params.update(dict(run_id=self.run_id, flow_name=self.flow_name))
         
     def render(self, task):
 
