@@ -1,0 +1,21 @@
+name: Test Flow
+on: [pull_request, push, workflow_dispatch]
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        py:  [3.6, 3.7, 3.8]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.py }}
+    - name: run tests
+      run: |
+        pip install -Uqq metaflow
+        chmod u+x tests/test.sh
+        make test

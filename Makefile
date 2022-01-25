@@ -1,8 +1,24 @@
 help:
 	cat Makefile
 
-render:
-	pip install -Uqe . && cd tests && python nbflow.py run && python nbflow.py card view end && cd ..
+run:
+	pip install -Uqe .
+	cd tests && python nbflow.py run
 
-render-show-input::
-	pip install -Uqe . && cd tests && python nbflow.py run --exclude_nb_input False && python nbflow.py card view end && cd ..
+run-show-input:
+	pip install -Uqe .
+	cd tests && python nbflow.py run --exclude_nb_input False
+
+render: run
+	cd tests && python nbflow.py card view end && cd ..
+
+render-show-input: run-show-input
+	cd tests && python nbflow.py card view end && cd ..
+
+test-show-input: run-show-input
+	cd tests && ./test.sh "-show-input"
+
+test-hide-input: run
+	cd tests &&  ./test.sh ""
+
+test: test-show-input test-hide-input
