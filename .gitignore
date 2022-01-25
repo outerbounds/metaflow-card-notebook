@@ -2,7 +2,7 @@
 .metaflow
 !.gitignore
 !.github
-.metaflow_card_cache
+metaflow_card_cache
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
