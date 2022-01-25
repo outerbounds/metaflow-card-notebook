@@ -37,6 +37,7 @@ class NotebookCard(MetaflowCard):
         # Configure rendering options for notebook
         c = Config()
         c.HTMLExporter.exclude_input_prompt = True
+        c.HTMLExporter.exclude_output_prompt = True
         c.HTMLExporter.exclude_input = self.exclude_input
         self.html_exporter = HTMLExporter(config=c, template_name = 'classic')
         self.flow_name = current.flow_name

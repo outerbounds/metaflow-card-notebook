@@ -3,7 +3,9 @@
 !.gitignore
 !.github
 metaflow_card_cache
-_rendered_*
+_rendered_*.ipynb
+rendered_*
+aclImdb*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
