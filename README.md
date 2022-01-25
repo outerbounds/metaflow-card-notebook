@@ -138,12 +138,12 @@ Recall that the `run_id`, `task_id`, and `flow_name` are injected into the noteb
 Some notes about this notebook:
 
 - We recommend printing the variables injected into the notebook.  This can help with debugging and provide an easy to locate lineage.
-- We demonstrate how to access this data via a `Step` or a `Task` object.  You can read more about the relationship between these items [in these docs](https://docs.metaflow.org/metaflow/client). In short a `Task` is a children of a `Step`, because a `Step` can have many tasks (for example if you use a `foreach` construct for parallelism).
-- We recommend exeucting a run manually, and prototyping the notebook interactively by temporarily supplying the `run_id`, `flow_name`, etc to achieve the desired result.
+- We demonstrate how to access your Flow's data via a `Step` or a `Task` object.  You can read more about the relationship between these objects [in these docs](https://docs.metaflow.org/metaflow/client). In short, a `Task` is a children of a `Step` because a `Step` can have many tasks (for example if you use a `foreach` construct for parallelism).
+- We recommend exeucting a run manually and prototyping the notebook by temporarily supplying the `run_id`, `flow_name`, etc to achieve the desired result.
 
 ## Step 4: Test the card
 
-To test the card in the example outlined above, you must first run the flow (the parenthesis allows the commands run in a subshell):
+To test the card in the example outlined above, you must first run the flow (the parenthesis allows the commands to run in a subshell):
 
 ```bash
 (cd tests && python nbflow.py run)
