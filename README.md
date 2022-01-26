@@ -1,4 +1,4 @@
-  [![](https://img.shields.io/github/license/outerbounds/metaflow-card-notebook)](LICENSE.md) [![Test Flow](https://github.com/outerbounds/metaflow-card-notebook/actions/workflows/test.yaml/badge.svg)](https://github.com/outerbounds/metaflow-card-notebook/actions/workflows/test.yaml)     [![](https://img.shields.io/pypi/v/metaflow-card-notebook)](https://pypi.org/project/metaflow-card-notebook/)  [![](https://img.shields.io/badge/slack-@outerbounds-purple.svg?logo=slack )](http://slack.outerbounds.co/)  
+  [![](https://img.shields.io/github/license/outerbounds/metaflow-card-notebook)](./LICENSE) [![Test Flow](https://github.com/outerbounds/metaflow-card-notebook/actions/workflows/test.yaml/badge.svg)](https://github.com/outerbounds/metaflow-card-notebook/actions/workflows/test.yaml)     [![](https://img.shields.io/pypi/v/metaflow-card-notebook)](https://pypi.org/project/metaflow-card-notebook/)  [![](https://img.shields.io/badge/slack-@outerbounds-purple.svg?logo=slack )](http://slack.outerbounds.co/)  
 # metaflow-card-notebook
 
 > Use `@card(type='notebook')` to programatically run & render notebooks in your Flows.
