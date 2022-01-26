@@ -18,7 +18,7 @@ setup(
     zip_safe=False,
     install_requires=[
         "papermill==2.3.3",
-        "nbconvert==6.1.0",
+        "nbconvert",
         "nbformat==5.1.3",
         "metaflow",
     ],
