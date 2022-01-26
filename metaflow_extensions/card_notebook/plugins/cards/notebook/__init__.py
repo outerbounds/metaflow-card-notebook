@@ -39,7 +39,7 @@ class NotebookCard(MetaflowCard):
         c.HTMLExporter.exclude_input_prompt = True
         c.HTMLExporter.exclude_output_prompt = True
         c.HTMLExporter.exclude_input = self.exclude_input
-        self.html_exporter = HTMLExporter(config=c, template_name = 'classic')
+        self.html_exporter = HTMLExporter(config=c, template_name = 'lab') #can be lab, classic, or basic
         self.flow_name = current.flow_name
 
          # inject `run_id`, `task_id` and `flow_name`` into the parameters
