@@ -26,7 +26,7 @@
 
 You may have seen [this series of blog posts](https://netflixtechblog.com/notebook-innovation-591ee3221233) that have been written about Notebook Infrastructure at Netflix.  Of particular interest is how notebooks [are programatically run](https://netflixtechblog.com/scheduling-notebooks-348e6c14cfd6), often in DAGs, to generate reports and dashboards:
 
-Exeucted Paramterized Notebooks             |  Notebooks in DAGs | Managing Dependencies & Scheduling
+Paramterized Exeuction of Notebooks             |  Notebooks in DAGs | Dependency Management & Scheduling
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](images/papermill.png)  | ![](images/dag.png) | ![](images/docker.png)
 
