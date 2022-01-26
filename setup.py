@@ -17,6 +17,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        "ipykernel==6.4.1",
         "papermill==2.3.3",
         "nbconvert",
         "nbformat==5.1.3",
