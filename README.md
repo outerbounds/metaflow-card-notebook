@@ -1,5 +1,4 @@
 [![Test Flow](https://github.com/outerbounds/metaflow-card-notebook/actions/workflows/test.yaml/badge.svg)](https://github.com/outerbounds/metaflow-card-notebook/actions/workflows/test.yaml)
-
 # metaflow-card-notebook
 
 > Use `@card(type='notebook')` to programatically run & render notebooks in your Flows.
