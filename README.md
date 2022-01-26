@@ -33,14 +33,14 @@ Paramterized Exeuction of Notebooks             |  Notebooks in DAGs | Dependenc
 
 This way of generating reports and dasbhoards is very compelling, as it lets data scientists create content using environments and tools that they are familiar with.  **With `@card(type='notebook')` you can programatically run and render notebooks as part of a DAG.** This card allows you to accomplish the following:
 
-- Run notebook(s) programatically in your Metaflow DAGs.
-- Access data from any step in your DAG so you can visualize it or otherwhise use it to generate reports in a notebook.
+- Run notebook(s) programmatically in your Metaflow DAGs.
+- Access data from any step in your DAG so you can visualize it or otherwise use it to generate reports in a notebook.
 - Render your notebooks as reports or model cards that can be embedded in various apps.
 - Inject custom parameters into your notebook for execution.
 - Ensure that notebook outputs are reproducible.
 
 
-Addiontally, you can use all of the features of Metaflow to manage execution of notebooks, for example:
+Additionally, you can use all of the features of Metaflow to manage the execution of notebooks, for example:
 - Managing dependencies (ex: `@conda`)
 - Requesting compute (ex: `@resources`)
 - Parallel execution (ex: `foreach`)
