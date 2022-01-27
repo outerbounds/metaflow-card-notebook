@@ -1,6 +1,8 @@
-from metaflow import step, current, FlowSpec, Parameter, conda_base, card
+from metaflow import step, current, FlowSpec, Parameter, conda_base, conda, card, resources
+import os
 
 
+@conda_base(python='3.8.10', libraries={'pandas':'1.3.5', 'scikit-learn':'1.0.2', 'matplotlib':'3.1.1', 'numpy':'1.22.0'})
 class NBFlow(FlowSpec):
     """
     MLCode is taken from this tutorial: https://keras.io/examples/nlp/text_classification_from_scratch/
@@ -14,6 +16,7 @@ class NBFlow(FlowSpec):
         tune_viz['neg_log_loss'] = tune_data['mean_test_score']
         return tune_viz
 
+    @conda(libraries={'pandas-profiling': '3.1.0'}) # 'metaflow-card-html':'1.0.0'
     @card(type='html')
     @step
     def start(self): 
@@ -25,6 +28,7 @@ class NBFlow(FlowSpec):
         self.html = profile.to_html()
         self.next(self.train_model)
 
+    @resources(memory=40000, cpu=4)
     @step
     def train_model(self):
         from sklearn.model_selection import train_test_split
@@ -69,11 +73,13 @@ class NBFlow(FlowSpec):
         self.tune_data = self.get_tune_data(self.cv_clf)
         self.next(self.evaluate)
 
-
-
+    # 'metaflow-card-notebook':'1.0.1', 'papermill':'2.3.3'
+    @resources(memory=10000, cpu=3)
+    @conda(libraries={'pdpbox':'0.2.1', 'altair':'4.2.0', 'plotly':'5.5.0'})
     @card(type='notebook')
     @step
     def evaluate(self):
+        os.system('pip install metaflow-card-notebook')
         self.nb_options_dict = dict(input_path='notebooks/Evaluate_Model.ipynb')
         self.next(self.end)
 
