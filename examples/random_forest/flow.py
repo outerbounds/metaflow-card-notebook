@@ -21,8 +21,8 @@ class NBFlow(FlowSpec):
         import pandas as pd
         from pandas_profiling import ProfileReport
         self.raw_data = pd.read_csv('https://raw.githubusercontent.com/outerbounds/.data/main/hospital_readmission.csv')
-        self.profile = ProfileReport(self.raw_data, title="Data Profile")
-        self.html = self.profile
+        profile = ProfileReport(self.raw_data, title="Data Profile")
+        self.html = profile.to_html()
         self.next(self.train_model)
 
     @step
