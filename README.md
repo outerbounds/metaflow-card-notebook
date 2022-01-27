@@ -58,22 +58,22 @@ pip install metaflow-card-notebook
 
 Before diving into how this card works, it is instructive to run a example to whet your appetite. To run the example, follow the below steps:
 
-1. Change into the [example](example/) directory:
+1. Change into the [examples/random_forest](examples/random_forest) directory:
 
     ```bash
-    cd example
+    cd examples/random_forest
     ```
 
 2. Run the example flow
 
     ```bash
-    python model_dashboard.py  run
+    python flow.py --package-suffixes=".ipynb"  run
     ```
 
 3. View the card created by the DAG you just ran:
 
     ```bash
-    python model_dashboard.py card nb_auto 
+    python flow.py card view evaluate
     ```
 
     You will be presented with a simple dashboard:
@@ -101,7 +101,7 @@ For example of this, see [tests/nbflow.ipynb](tests/nbflow.ipynb):
 
 ## Step 2: Prepare your flow with the notebook card
 
-You can render cards from notebooks using the `@card(type='notebook')` decorator on a step.  For example, in [tests/nbflow.py](tests/nbflow.py), the notebook [tests/nbflow.ipynb](example/notebooks/Evaluate.ipynb) is run and rendered programatically:
+You can render cards from notebooks using the `@card(type='notebook')` decorator on a step.  For example, in [tests/nbflow.py](tests/nbflow.py), the notebook [tests/nbflow.ipynb](tests/nbflow.ipynb) is run and rendered programatically:
 
 ```python
 from metaflow import step, current, FlowSpec, Parameter, card
@@ -164,7 +164,7 @@ By default, the cell inputs are hidden when the card is rendered.  For learning 
 
 # Customized Rendering
 
-The `@card(type='notebook')` is an opinionated way to execute and render notebooks with the tradeoff of requiring significantly less code.  While some customization is possible by passing the appropriate arguments to `nb_options_dict` as listed in [papermill.exeucte.notebook](https://papermill.readthedocs.io/en/latest/reference/papermill-workflow.html#module-papermill.execute), you can achieve more fine-grained control by exeucting and rendering the notebook yourself and using the [html card](https://github.com/outerbounds/metaflow-card-html).  We show an example of this in [example/model_dashboard.py](example/model_dashboard.py):
+The `@card(type='notebook')` is an opinionated way to execute and render notebooks with the tradeoff of requiring significantly less code.  While some customization is possible by passing the appropriate arguments to `nb_options_dict` as listed in [papermill.exeucte.notebook](https://papermill.readthedocs.io/en/latest/reference/papermill-workflow.html#module-papermill.execute), you can achieve more fine-grained control by exeucting and rendering the notebook yourself and using the [html card](https://github.com/outerbounds/metaflow-card-html).  We show an example of this in [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py):
 
 ```py
     @card(type='html')
@@ -193,7 +193,7 @@ The `@card(type='notebook')` is an opinionated way to execute and render noteboo
 You can the following command in your terminal the see output of this step(may take several minutes):
 
 ```bash
-(cd example && python model_dashboard.py  run && python model_dashboard.py card view nb_manual) 
+(cd example && python dl_flow.py  run && python dl_flow.py card view nb_manual) 
 ```
 
 # Common Issues
@@ -235,8 +235,8 @@ If you are running your flow remotely, you must remember to include the depdende
 
 ## Remote Execution
 
-If you are running steps remotely, for example [with `@batch`](https://docs.metaflow.org/metaflow/scaling#using-aws-batch-selectively-with-batch-decorator), you must ensure that youre notebooks are uploaded to the remote environment with the cli argument `--package-suffixes=".ipynb"` For example, to execute [example/model_dashboard.py](example/model_dashboard.py) with this argument:
+If you are running steps remotely, for example [with `@batch`](https://docs.metaflow.org/metaflow/scaling#using-aws-batch-selectively-with-batch-decorator), you must ensure that youre notebooks are uploaded to the remote environment with the cli argument `--package-suffixes=".ipynb"` For example, to execute [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py) with this argument:
 
 ```bash
-(cd example && python model_dashboard.py  --package-suffixes=".ipynb" run)
+(cd example && python dl_flow.py  --package-suffixes=".ipynb" run)
 ```

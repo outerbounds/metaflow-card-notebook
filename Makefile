@@ -23,10 +23,14 @@ test-hide-input: run
 
 test: test-show-input test-hide-input
 
-example: .FORCE
-	cd example && python model_dashboard.py --package-suffixes=".ipynb"  run
-	cd example &&  python model_dashboard.py card view nb_auto
-	cd example &&  python model_dashboard.py card view nb_manual
+example-dl: .FORCE
+	cd examples/deep_learning && python dl_flow.py --package-suffixes=".ipynb"  run
+	cd examples/deep_learning &&  python dl_flow.py card view nb_auto
+	cd examples/deep_learning &&  python dl_flow.py card view nb_manual
+
+example-rf: .FORCE
+	cd examples/random_forest && python flow.py --package-suffixes=".ipynb"  run
+	cd examples/random_forest && python flow.py card view evaluate
 
 .FORCE:
 
