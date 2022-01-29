@@ -25,7 +25,7 @@ test: test-show-input test-hide-input
 
 example-dl: .FORCE
 	cd examples/deep_learning && python dl_flow.py --package-suffixes=".ipynb"  run && \
-		python dl_flow.py card view nb_auto
+		python dl_flow.py card view nb_auto && \
 		python dl_flow.py card view nb_manual
 
 example-rf: .FORCE
