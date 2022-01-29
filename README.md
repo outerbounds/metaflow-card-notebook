@@ -16,8 +16,9 @@
 - [Customized Rendering](#customized-rendering)
 - [Common Issues](#common-issues)
     - [Papermill Arguments](#papermill-arguments)
-    - [Dependency Management](#dependency-management)
     - [Remote Execution](#remote-execution)
+        - [Dependency Management](#dependency-management)
+        - [Including Notebook Files In The Context](#including-notebook-files-in-the-context)
 - [Examples](#examples)
 
 <!-- /TOC -->
