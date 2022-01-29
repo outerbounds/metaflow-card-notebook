@@ -197,20 +197,22 @@ Many issues can be resolved by providing the right arguments to [papermill.exeuc
         self.nb_options_dict = dict(input_path='nbflow.ipynb', cwd='data/')
 ```
 
-## Dependency Management
+## Remote Execution
 
-If you are running your flow remotely, you must remember to include the depdendencies for this notebook card itself!  One way to do this is with the [`@conda` decorator](https://docs.metaflow.org/metaflow/dependencies#managing-dependencies-with-conda-decorator):
+### Dependency Management
 
+If you are running your flow remotely, you must remember to include the depdendencies for this notebook card itself!  One way to do this is using pip as illustrated below:
 
 ```python
-    @conda(libraries={'metaflow-card-notebook':'1.0.1'}) # use the right version number, this is just illustrative.
     @card(type='notebook')
     @step
     def end(self):
+        import os
+        os.system('pip install metaflow-card-notebook')
         self.nb_options_dict = dict(input_path='nbflow.ipynb')
 ```
 
-## Remote Execution
+### Including Notebook Files In The Context
 
 If you are running steps remotely, for example [with `@batch`](https://docs.metaflow.org/metaflow/scaling#using-aws-batch-selectively-with-batch-decorator), you must ensure that youre notebooks are uploaded to the remote environment with the cli argument `--package-suffixes=".ipynb"` For example, to execute [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py) with this argument:
 
@@ -220,4 +222,4 @@ If you are running steps remotely, for example [with `@batch`](https://docs.meta
 
 # Examples
 
-We provide several examples of flows with notebook cards in [examples/](examples/)
+We provide several examples of flows that contain the notebook card in [examples/](examples/).
