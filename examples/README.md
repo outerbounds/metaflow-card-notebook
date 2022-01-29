@@ -2,7 +2,7 @@
 
 This directory contains examples of using the `notebook` card.  Both of these examples involve training a model and visualizing various performance metrics and diagnostics in a Jupyter Notebook as part of your Flow.  The notebook is dynamically updated with the results of the Flow.  There are two different example flows, one that trains a model with Tensorflow and another with a Random Forest.  
 
-Note that we are using [conda](https://docs.conda.io/en/latest/) for dependency management in these examples.  We understand that not everyone uses conda, so we have also included a `requirments.txt` file in each directory.  However, we recommend using conda due to the complex dependencies machine learning libraries often have.
+Note that we are using [Conda](https://docs.conda.io/en/latest/) for dependency management in these examples.  We understand that not everyone uses Conda, so we have also included a `requirments.txt` file in each directory.  However, we recommend using Conda due to the complex dependencies machine learning libraries often have.
 
 Instructions on running these examples are as follows:
 
