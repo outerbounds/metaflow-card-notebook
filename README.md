@@ -202,7 +202,7 @@ Many issues can be resolved by providing the right arguments to [papermill.exeuc
 
 ### Dependency Management
 
-If you are running your flow remotely, you must remember to include the depdendencies for this notebook card itself!  One way to do this is using pip as illustrated below:
+If you are running your flow remotely, for example [with `@batch`](https://docs.metaflow.org/metaflow/scaling#using-aws-batch-selectively-with-batch-decorator), you must remember to include the depdendencies for this notebook card itself!  One way to do this is using `pip` as illustrated below:
 
 ```python
     @card(type='notebook')
@@ -215,7 +215,7 @@ If you are running your flow remotely, you must remember to include the depdende
 
 ### Including Notebook Files In The Context
 
-If you are running steps remotely, for example [with `@batch`](https://docs.metaflow.org/metaflow/scaling#using-aws-batch-selectively-with-batch-decorator), you must ensure that youre notebooks are uploaded to the remote environment with the cli argument `--package-suffixes=".ipynb"` For example, to execute [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py) with this argument:
+If you are running steps remotely, you must ensure that your notebooks are uploaded to the remote environment with the cli argument `--package-suffixes=".ipynb"` For example, to execute [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py) with this argument:
 
 ```bash
 (cd example && python dl_flow.py  --package-suffixes=".ipynb" run)
