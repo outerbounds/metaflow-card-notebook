@@ -75,7 +75,7 @@ You can use these variables to retrieve the data you need from a Flow.  It is re
 For example of this, see [tests/nbflow.ipynb](tests/nbflow.ipynb):
 
 
-![](2022-02-06-11-12-53.png)
+![](images/nb_params.png)
 
 > Note: in the example notebook thse variables are set to `None` however, you can set these variables to real values based on flows that have been previously executed for prototyping.
 
