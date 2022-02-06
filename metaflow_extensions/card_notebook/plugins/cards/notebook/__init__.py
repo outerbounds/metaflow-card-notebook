@@ -5,7 +5,7 @@ import papermill as pm
 from pathlib import Path
 from nbconvert import HTMLExporter
 import nbformat
-import json
+
 
 class NotebookCard(MetaflowCard):
 
@@ -44,13 +44,14 @@ class NotebookCard(MetaflowCard):
 
          # inject `run_id`, `task_id` and `flow_name`` into the parameters
         run_id = task.parent.parent.id
+        step_name = task.path_components[-2]
         params = self.options.get('parameters', {})
-        params.update(dict(run_id=task.parent.parent.id, flow_name=self.flow_name, task_id=task.id))
+        params.update(dict(run_id=task.parent.parent.id, flow_name=self.flow_name, task_id=task.id, step_name=step_name))
         self.options['parameters'] = params
 
         # Calcualate output path and filename if none is given for the rendered notebook
         if 'output_path' not in self.options or not self.options['output_nb']:
-            new_fn = f"_rendered_{run_id}_{task.id}_{self.input_path.name}"
+            new_fn = f"_rendered_{run_id}_{step_name}_{task.id}_{self.input_path.name}"
             self.output_path = self.input_path.with_name(new_fn)
         else:
             self.output_path = self.options['output_nb']

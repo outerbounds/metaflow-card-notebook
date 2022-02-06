@@ -70,12 +70,14 @@ The notebook card injects the following three variables into your notebook:
 2. `task_id`
 3. `flow_name`
 
-You can use these variables to retrieve the data you need from a Flow.  It is recommended that the first cell in your notebook defines these variables, and that [you designate this cell with the tag `parameters`](https://papermill.readthedocs.io/en/latest/usage-parameterize.html).
+You can use these variables to retrieve the data you need from a Flow.  It is recommended that the first cell in your notebook defines these variables, and that [you designate this cell with the tag "parameters"](https://papermill.readthedocs.io/en/latest/usage-parameterize.html).
 
 For example of this, see [tests/nbflow.ipynb](tests/nbflow.ipynb):
 
 
-![](images/nb_params.png)
+![](2022-02-06-11-12-53.png)
+
+> Note: in the example notebook thse variables are set to `None` however, you can set these variables to real values based on flows that have been previously executed for prototyping.
 
 
 ## Step 2: Prepare your flow with the notebook card
@@ -111,7 +113,7 @@ Furthermore, the `exclude_input` is an additional boolean argument that specifie
 
 ## Step 3: Prototype the rest of your notebook
 
-Recall that the `run_id`, `task_id`, and `flow_name` are injected into the notebook.  We can access this in a notebook using [Metaflow's utlities for inspecting Flows and Results](https://docs.metaflow.org/metaflow/client).  We demonstrate this in [tests/nbflow.ipynb](tests/nbflow.ipynb):
+Recall that the `run_id`, `step_name`, `task_id`, and `flow_name` are injected into the notebook.  We can access this in a notebook using [Metaflow's utlities for inspecting Flows and Results](https://docs.metaflow.org/metaflow/client).  We demonstrate this in [tests/nbflow.ipynb](tests/nbflow.ipynb):
 
 ![](images/nb_prototype.png)
 
