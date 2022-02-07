@@ -1,3 +1,4 @@
+from matplotlib.pyplot import step
 from traitlets.config import Config
 from metaflow.cards import MetaflowCard
 from metaflow import current
@@ -30,7 +31,7 @@ class NotebookCard(MetaflowCard):
             if not self.input_path.name.endswith('.ipynb'):
                 raise ValueError(f"input_path must be a notebook file, not {self.input_path}")
             if not self.input_path.exists():
-                raise ValueError(f"Input notebook does not exist: {self.input_path}\n The current directory is {Path.cwd()}")
+                raise ValueError(f"Input notebook does not exist: {self.input_path}\n The current working directory is {Path.cwd()}.  Please ensure this file exists under the working directory.")
 
         self.exclude_input = self.options.get('exclude_input', True)
 
@@ -40,13 +41,11 @@ class NotebookCard(MetaflowCard):
         c.HTMLExporter.exclude_output_prompt = True
         c.HTMLExporter.exclude_input = self.exclude_input
         self.html_exporter = HTMLExporter(config=c, template_name = 'lab') #can be lab, classic, or basic
-        self.flow_name = current.flow_name
 
          # inject `run_id`, `task_id` and `flow_name`` into the parameters
-        run_id = task.parent.parent.id
-        step_name = task.path_components[-2]
+        flow_name, run_id, step_name, task_id = task.pathspec.split('/')
         params = self.options.get('parameters', {})
-        params.update(dict(run_id=task.parent.parent.id, flow_name=self.flow_name, task_id=task.id, step_name=step_name))
+        params.update(dict(run_id=run_id, flow_name=flow_name, task_id=task_id, step_name=step_name, pathspec=task.pathspec))
         self.options['parameters'] = params
 
         # Calcualate output path and filename if none is given for the rendered notebook
