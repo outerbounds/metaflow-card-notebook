@@ -6,6 +6,7 @@ metaflow_card_cache
 _rendered_*.ipynb
 rendered_*
 aclImdb*
+index.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

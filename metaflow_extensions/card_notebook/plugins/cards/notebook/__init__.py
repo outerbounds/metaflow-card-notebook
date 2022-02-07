@@ -1,3 +1,5 @@
+from multiprocessing.sharedctypes import Value
+from matplotlib.pyplot import step
 from traitlets.config import Config
 from metaflow.cards import MetaflowCard
 from metaflow import current
@@ -5,7 +7,7 @@ import papermill as pm
 from pathlib import Path
 from nbconvert import HTMLExporter
 import nbformat
-import json
+
 
 class NotebookCard(MetaflowCard):
 
@@ -21,7 +23,7 @@ class NotebookCard(MetaflowCard):
             raise ValueError(f"Must specify {self._attr_options_dict_nm} in task: {task.parent.pathspec}")
         else:
             self.options = task[self._attr_options_dict_nm].data
-
+        
         # Validate `input_path`
         if 'input_path' not in self.options or not self.options['input_path']:
             raise ValueError(f"Must specify 'input_path' in {self._attr_options_dict_nm} in task: {task.parent.pathspec}")
@@ -30,7 +32,7 @@ class NotebookCard(MetaflowCard):
             if not self.input_path.name.endswith('.ipynb'):
                 raise ValueError(f"input_path must be a notebook file, not {self.input_path}")
             if not self.input_path.exists():
-                raise ValueError(f"Input notebook does not exist: {self.input_path}\n The current directory is {Path.cwd()}")
+                raise ValueError(f"Input notebook does not exist: {self.input_path}\n The current working directory is {Path.cwd()}.  Please ensure this file exists under the working directory.")
 
         self.exclude_input = self.options.get('exclude_input', True)
 
@@ -40,17 +42,16 @@ class NotebookCard(MetaflowCard):
         c.HTMLExporter.exclude_output_prompt = True
         c.HTMLExporter.exclude_input = self.exclude_input
         self.html_exporter = HTMLExporter(config=c, template_name = 'lab') #can be lab, classic, or basic
-        self.flow_name = current.flow_name
 
          # inject `run_id`, `task_id` and `flow_name`` into the parameters
-        run_id = task.parent.parent.id
+        flow_name, run_id, step_name, task_id = task.pathspec.split('/')
         params = self.options.get('parameters', {})
-        params.update(dict(run_id=task.parent.parent.id, flow_name=self.flow_name, task_id=task.id))
+        params.update(dict(run_id=run_id, flow_name=flow_name, task_id=task_id, step_name=step_name, pathspec=task.pathspec))
         self.options['parameters'] = params
 
         # Calcualate output path and filename if none is given for the rendered notebook
         if 'output_path' not in self.options or not self.options['output_nb']:
-            new_fn = f"_rendered_{run_id}_{task.id}_{self.input_path.name}"
+            new_fn = f"_rendered_{run_id}_{step_name}_{task.id}_{self.input_path.name}"
             self.output_path = self.input_path.with_name(new_fn)
         else:
             self.output_path = self.options['output_nb']
