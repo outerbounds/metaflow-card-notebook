@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 from matplotlib.pyplot import step
 from traitlets.config import Config
 from metaflow.cards import MetaflowCard
@@ -22,7 +23,7 @@ class NotebookCard(MetaflowCard):
             raise ValueError(f"Must specify {self._attr_options_dict_nm} in task: {task.parent.pathspec}")
         else:
             self.options = task[self._attr_options_dict_nm].data
-
+        
         # Validate `input_path`
         if 'input_path' not in self.options or not self.options['input_path']:
             raise ValueError(f"Must specify 'input_path' in {self._attr_options_dict_nm} in task: {task.parent.pathspec}")
