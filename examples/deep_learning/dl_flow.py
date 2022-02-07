@@ -56,9 +56,8 @@ class NBFlow(FlowSpec):
 
         pm.execute_notebook('notebooks/Evaluate.ipynb',
                             output_nb_path,
-                            parameters=dict(run_id=current.run_id,
-                                             flow_name=current.flow_name,)
-                             )
+                            parameters=dict(pathspec = current.pathspec)
+                            )
         run(f'jupyter nbconvert --to html --no-input --no-prompt {output_nb_path}')
         with open(output_html_path, 'r') as f:
             self.html = f.read()

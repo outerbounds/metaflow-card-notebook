@@ -4,7 +4,7 @@ import os
 
 class NBFlow(FlowSpec):
     """
-    MLCode is taken from this tutorial: https://keras.io/examples/nlp/text_classification_from_scratch/
+    Random Forest Classification flow. 
     """
     @classmethod
     def get_tune_data(cls, search_clf):

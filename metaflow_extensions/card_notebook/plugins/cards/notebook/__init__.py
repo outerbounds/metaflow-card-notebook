@@ -44,9 +44,13 @@ class NotebookCard(MetaflowCard):
 
          # inject `run_id`, `task_id` and `flow_name`` into the parameters
         run_id = task.parent.parent.id
-        step_name = task.path_components[-2]
+        step_name = task.parent.id
         params = self.options.get('parameters', {})
-        params.update(dict(run_id=task.parent.parent.id, flow_name=self.flow_name, task_id=task.id, step_name=step_name))
+        params.update(
+            dict(
+                pathspec = task.pathspec,
+            )
+        )
         self.options['parameters'] = params
 
         # Calcualate output path and filename if none is given for the rendered notebook
