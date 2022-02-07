@@ -18,6 +18,7 @@ jobs:
       run: |
         pip install -Uqq pip
         pip install -Uqq metaflow ipykernel==6.4.1
+        pip install -Uqq .
         python3 -m ipykernel install --user --name python3
         chmod u+x tests/test.sh
         make test
