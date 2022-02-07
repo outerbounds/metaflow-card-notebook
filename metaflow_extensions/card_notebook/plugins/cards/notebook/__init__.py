@@ -1,5 +1,4 @@
 from multiprocessing.sharedctypes import Value
-from matplotlib.pyplot import step
 from traitlets.config import Config
 from metaflow.cards import MetaflowCard
 from metaflow import current
