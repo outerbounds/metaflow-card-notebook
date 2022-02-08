@@ -80,6 +80,8 @@ For example of this, see [tests/nbflow.ipynb](tests/nbflow.ipynb):
 
 ![](images/nb_params.png)
 
+![](2022-02-07-19-52-50.png)
+
 > Note: in the example notebook thse variables are set to `None` however, you can set these variables to real values based on flows that have been previously executed for prototyping.
 
 
@@ -118,7 +120,7 @@ Furthermore, the `exclude_input` is an additional boolean argument that specifie
 
 Recall that the `run_id`, `step_name`, `task_id`, `flow_name` and `pathspec` are injected into the notebook.  We can access this in a notebook using [Metaflow's utlities for inspecting Flows and Results](https://docs.metaflow.org/metaflow/client).  We demonstrate this in [tests/nbflow.ipynb](tests/nbflow.ipynb):
 
-![](images/nb_prototype.png)
+![](2022-02-07-19-51-48.png)
 
 Some notes about this notebook:
 
