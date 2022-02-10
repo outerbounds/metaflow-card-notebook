@@ -1,7 +1,5 @@
-from multiprocessing.sharedctypes import Value
 from traitlets.config import Config
 from metaflow.cards import MetaflowCard
-from metaflow import current
 import papermill as pm
 from pathlib import Path
 from nbconvert import HTMLExporter

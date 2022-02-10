@@ -1,4 +1,4 @@
-from metaflow import step, current, FlowSpec, Parameter, card
+from metaflow import step, FlowSpec, Parameter, card
 
 class NBFlow(FlowSpec):
 
