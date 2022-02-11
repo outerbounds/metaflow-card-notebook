@@ -216,8 +216,8 @@ If you are running your flow remotely, for example [with `@batch`](https://docs.
     @card(type='notebook')
     @step
     def end(self):
-        import os
-        os.system('pip install metaflow-card-notebook')
+        import os, sys
+        os.system(f"{sys.executable} -m pip install metaflow-card-notebook")
         self.nb_options_dict = dict(input_path='nbflow.ipynb')
 ```
 
