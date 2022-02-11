@@ -19,7 +19,7 @@ setup(
     install_requires=[
         "ipykernel==6.4.1",
         "papermill==2.3.3",
-        "nbconvert",
+        "nbconvert==6.4.1",
         "nbformat==5.1.3",
         "metaflow",
     ],
