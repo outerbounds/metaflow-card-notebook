@@ -6,7 +6,7 @@ def get_long_description() -> str:
 
 setup(
     name="metaflow-card-notebook",
-    version="1.0.1",
+    version="1.0.2",
     description="Render Jupyter Notebooks in Metaflow Cards",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
