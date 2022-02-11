@@ -24,7 +24,7 @@ Instructions on running these examples are as follows:
 3. View the card
 
     ```python
-    python flow.py card view nb_auto
+    python dl_flow.py card view nb_auto
     ```
 
 ---
