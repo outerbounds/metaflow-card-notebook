@@ -13,7 +13,7 @@ long_description = open('README.md').read()
 
 setup(
     name="metaflow-card-notebook",
-    version="1.0.2",
+    version=cfg['version'],
     description="Render Jupyter Notebooks in Metaflow Cards",
     long_description=long_description,
     long_description_content_type="text/markdown",

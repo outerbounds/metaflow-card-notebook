@@ -36,7 +36,6 @@ example-rf: .FORCE
 
 release:
 	cog -r README.md
-	git add README.md; git commit -m'updated README.md';
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
 
