@@ -1,14 +1,21 @@
 from setuptools import find_namespace_packages, setup
+from pathlib import Path
 
-def get_long_description() -> str:
-    with open("README.md") as fh:
-        return fh.read()
+from configparser import ConfigParser
+config = ConfigParser(delimiters=['='])
+config.read('settings.ini')
+cfg = config['DEFAULT']
+
+dev_requirements = (cfg.get('dev_requirements') or '').split()
+requirements = (cfg.get('requirements') or '').split()
+long_description = open('README.md').read()
+
 
 setup(
     name="metaflow-card-notebook",
     version="1.0.2",
     description="Render Jupyter Notebooks in Metaflow Cards",
-    long_description=get_long_description(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     author="Hamel Husain",
     author_email="hamel@outerbounds.com",
@@ -16,11 +23,6 @@ setup(
     packages=find_namespace_packages(include=['metaflow_extensions.*']),
     include_package_data=True,
     zip_safe=False,
-    install_requires=[
-        "ipykernel==6.4.1",
-        "papermill==2.3.3",
-        "nbconvert==6.4.1",
-        "nbformat==5.1.3",
-        "metaflow",
-    ],
+    install_requires=requirements,
+    extras_require={ 'dev': dev_requirements },
 )

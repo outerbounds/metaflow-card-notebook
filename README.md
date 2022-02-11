@@ -212,14 +212,37 @@ Many issues can be resolved by providing the right arguments to [papermill.exeuc
 
 If you are running your flow remotely, for example [with `@batch`](https://docs.metaflow.org/metaflow/scaling#using-aws-batch-selectively-with-batch-decorator), you must remember to include the depdendencies for this notebook card itself!  One way to do this is using `pip` as illustrated below:
 
+<!-- [[[cog
+import cog
+from configparser import ConfigParser
+config = ConfigParser(delimiters=['='])
+config.read('settings.ini')
+cfg = config['DEFAULT']
+requirements = cfg.get('requirements')
+
+code_block = f"""
 ```python
     @card(type='notebook')
     @step
     def end(self):
         import os, sys
-        os.system(f"{sys.executable} -m pip install metaflow-card-notebook")
+        os.system(f"sys.executable -m pip {requirements}")
         self.nb_options_dict = dict(input_path='nbflow.ipynb')
 ```
+"""
+cog.outl(code_block)
+]]] -->
+
+```python
+    @card(type='notebook')
+    @step
+    def end(self):
+        import os, sys
+        os.system(f"sys.executable -m pip ipykernel==6.4.1 papermill==2.3.3 nbconvert==6.4.1 nbformat==5.1.3")
+        self.nb_options_dict = dict(input_path='nbflow.ipynb')
+```
+
+<!-- [[[end]]] -->
 
 Note: You can omit the `pip install` step above if your environment already includes all the dependendencies in your target environment listed in [setup.py](/setup.py) in `install_requires`.  If you do omit `pip install`, make sure that you pin the correction version numbers as well.
 
