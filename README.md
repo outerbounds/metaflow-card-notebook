@@ -221,6 +221,8 @@ If you are running your flow remotely, for example [with `@batch`](https://docs.
         self.nb_options_dict = dict(input_path='nbflow.ipynb')
 ```
 
+Note: You can omit the `pip install` step above if your environment already includes all the dependendencies in your target environment listed in [setup.py](/setup.py) in `install_requires`.  If you do omit `pip install`, make sure that you pin the correction version numbers as well.
+
 ### Including Notebook Files In The Context
 
 If you are running steps remotely, you must ensure that your notebooks are uploaded to the remote environment with the cli argument `--package-suffixes=".ipynb"` For example, to execute [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py) with this argument:
