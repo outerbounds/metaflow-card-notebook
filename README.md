@@ -244,7 +244,7 @@ cog.outl(code_block)
 
 <!-- [[[end]]] -->
 
-Note: You can omit the `pip install` step above if your environment already includes all the dependendencies in your target environment listed in [setup.py](/setup.py) in `install_requires`.  If you do omit `pip install`, make sure that you pin the correction version numbers as well.
+Note: You can omit the `pip install` step above if your environment already includes all the dependendencies in your target environment listed in [setup.py](/setup.py) in [settings.ini](/settings.ini).  If you do omit `pip install`, make sure that you pin the correction version numbers as well.
 
 ### Including Notebook Files In The Context
 
