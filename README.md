@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
 Note how the `start` step stores some data that we want to access from a notebook later. We will discuss how to access this data from a notebook in the next step.
 
-By default, a step that is decorated with `@card(type='notebook')` expects the variable `nb_options_dict` to be defined in the step. This variable is a dictionary of arguments that is passed to [papermill.exeucte.notebook](https://papermill.readthedocs.io/en/latest/reference/papermill-workflow.html#module-papermill.execute). Only the `input_path` argument is required. If `output_path` is absent, this is automatically set to `_rendered_<run_id>_<step_name>_<task_id>_<your_input_notebook_name>.ipynb`.
+By default, a step that is decorated with `@card(type='notebook')` expects the variable `nb_options_dict` to be defined in the step. This variable is a dictionary of arguments that is passed to [papermill.execute.notebook](https://papermill.readthedocs.io/en/latest/reference/papermill-workflow.html#module-papermill.execute). Only the `input_path` argument is required. If `output_path` is absent, this is automatically set to `_rendered_<run_id>_<step_name>_<task_id>_<your_input_notebook_name>.ipynb`.
 
 Furthermore, the `exclude_input` is an additional boolean argument that specifies whether or not to show our hide cell outputs, which is `False` by default.
 
@@ -144,7 +144,7 @@ By default, the cell inputs are hidden when the card is rendered. For learning p
 
 # Customized Rendering
 
-The `@card(type='notebook')` is an opinionated way to execute and render notebooks with the tradeoff of requiring significantly less code. While some customization is possible by passing the appropriate arguments to `nb_options_dict` as listed in [papermill.exeucte.notebook](https://papermill.readthedocs.io/en/latest/reference/papermill-workflow.html#module-papermill.execute), you can achieve more fine-grained control by executing and rendering the notebook yourself and using the [html card](https://github.com/outerbounds/metaflow-card-html). We show an example of this in [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py):
+The `@card(type='notebook')` is an opinionated way to execute and render notebooks with the tradeoff of requiring significantly less code. While some customization is possible by passing the appropriate arguments to `nb_options_dict` as listed in [papermill.execute.notebook](https://papermill.readthedocs.io/en/latest/reference/papermill-workflow.html#module-papermill.execute), you can achieve more fine-grained control by executing and rendering the notebook yourself and using the [html card](https://github.com/outerbounds/metaflow-card-html). We show an example of this in [examples/deep_learning/dl_flow.py](examples/deep_learning/dl_flow.py):
 
 ```py
     @card(type='html')
