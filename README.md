@@ -232,7 +232,7 @@ cog.outl(code_block)
     @step
     def end(self):
         import os, sys
-        os.system(f"sys.executable -m pip ipykernel==6.4.1 papermill==2.3.3 nbconvert==6.4.1 nbformat==5.1.3")
+        os.system(f"sys.executable -m pip ipykernel>=6.4.1 papermill>=2.3.3 nbconvert>=6.4.1 nbformat>=5.1.3")
         self.nb_options_dict = dict(input_path='nbflow.ipynb')
 ```
 
