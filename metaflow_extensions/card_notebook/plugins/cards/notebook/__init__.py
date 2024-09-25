@@ -1,5 +1,5 @@
 from traitlets.config import Config
-from metaflow.cards import MetaflowCard
+from metaflow.plugins.cards.card_modules.card import MetaflowCard
 import papermill as pm
 from pathlib import Path
 from nbconvert import HTMLExporter
