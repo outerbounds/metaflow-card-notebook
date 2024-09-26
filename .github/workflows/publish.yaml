@@ -1,0 +1,26 @@
+name: Publish metaflow-card-notebook to pypi (Manual)
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.11'
+    - name: Install Python 3.x dependencies
+      run: |
+        python3 -m pip install --upgrade pip==22.3.1
+        pip3 install setuptools==65.5.0 wheel==0.38.4 twine==4.0.2
+    - name: Build package
+      run: |
+        python3 setup.py sdist bdist_wheel --universal
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        packages-dir: ./dist
